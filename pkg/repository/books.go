@@ -2,7 +2,6 @@ package repository
 
 import (
 	"context"
-
 	"github.com/stepan41k/lessonPostgres/pkg/models"
 )
 
@@ -34,7 +33,6 @@ func (repo *PGRepo) GetBooks() ([]models.Book, error) {
 	}
 
 	return data, nil
-
 }
 
 func (repo *PGRepo) NewBook(item models.Book) (id int, err error) {
@@ -65,5 +63,25 @@ func (repo *PGRepo) GetBookByID(id int) (models.Book, error) {
 		&book.Price,
 	)
 	return book, err
+}
 
+func (repo *PGRepo) UpdateBook(item string, newBook models.Book)(models.Book, error) {
+
+	var book models.Book
+
+	_, err := repo.pool.Exec(context.Background(), `
+	UPDATE books
+	SET name = $1, author_id = $2, genre_id = $3, price = $4
+	WHERE name = $5`,
+	newBook.Name, newBook.AuthorID, newBook.GenreID, newBook.Price, item)
+		
+	return book, err
+}
+
+func (repo * PGRepo) DeleteBook(name string) (error) {
+	_, err := repo.pool.Query(context.Background(), `
+		DELETE FROM books
+		WHERE name = $1
+		`, name)
+	return err
 }
