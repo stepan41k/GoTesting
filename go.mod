@@ -1,4 +1,4 @@
-module github.com/stepan41k/lessonPostgres
+module github.com/stepan41k/GoTesting
 
 go 1.24.1
 
@@ -7,6 +7,7 @@ require (
 	github.com/go-chi/chi v1.5.5
 	github.com/go-chi/render v1.0.3
 	github.com/stretchr/testify v1.10.0
+	go.uber.org/mock v0.5.2
 )
 
 require (
@@ -39,7 +40,6 @@ require (
 	github.com/yalp/jsonpath v0.0.0-20180802001716-5cc68e5049a0 // indirect
 	github.com/yudai/gojsondiff v1.0.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
-	go.uber.org/mock v0.5.2 // indirect
 	golang.org/x/net v0.33.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect

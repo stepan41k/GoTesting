@@ -3,7 +3,7 @@ package age
 import (
 	"testing"
 
-	"github.com/stepan41k/lessonPostgres/task-6/age/mocks"
+	"github.com/stepan41k/GoTesting/task-6/age/mocks"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 )
